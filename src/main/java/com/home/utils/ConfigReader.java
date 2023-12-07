@@ -1,4 +1,4 @@
-package java.com.home.utils;
+package com.home.utils;
 
 import java.io.FileInputStream;
 import java.util.Properties;

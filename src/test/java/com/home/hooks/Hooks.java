@@ -1,4 +1,4 @@
-package java.com.home.hooks;
+package com.home.hooks;
 
 
 import com.microsoft.playwright.Page;
@@ -6,9 +6,9 @@ import com.microsoft.playwright.Tracing;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
+import com.home.factory.DriverFactory;
 
-import java.com.home.factory.DriverFactory;
-import java.com.home.utils.WebActions;
+import com.home.utils.WebActions;
 import java.nio.file.Paths;
 
 public class Hooks {

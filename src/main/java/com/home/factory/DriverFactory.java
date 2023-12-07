@@ -1,8 +1,8 @@
-package java.com.home.factory;
+package com.home.factory;
 
 import com.microsoft.playwright.*;
 
-import java.com.home.utils.WebActions;
+import com.home.utils.WebActions;
 import java.util.Locale;
 
 public class DriverFactory {

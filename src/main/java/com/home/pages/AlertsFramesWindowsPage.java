@@ -1,4 +1,4 @@
-package java.com.home.pages;
+package com.home.pages;
 
 import com.microsoft.playwright.BrowserContext;
 import com.microsoft.playwright.Locator;

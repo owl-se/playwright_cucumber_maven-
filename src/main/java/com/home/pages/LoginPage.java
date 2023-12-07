@@ -1,9 +1,9 @@
-package java.com.home.pages;
+package com.home.pages;
 
 import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
 
-import java.com.home.utils.WebActions;
+import com.home.utils.WebActions;
 
 public class LoginPage {
     private Page page;

@@ -1,4 +1,4 @@
-package java.com.home;
+package com.home;
 
 import io.cucumber.junit.Cucumber;
 import io.cucumber.junit.CucumberOptions;
