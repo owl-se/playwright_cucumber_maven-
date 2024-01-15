@@ -24,6 +24,10 @@ public class LoginPage {
         this.page.navigate(WebActions.getProperty(url));
     }
 
+    public void navigateToBaseUrl() {
+        this.page.navigate(WebActions.getProperty("url"));
+    }
+
     public void enterUsername(String username) {
         USERNAME_EDITBOX.fill(WebActions.getProperty(username));
     }

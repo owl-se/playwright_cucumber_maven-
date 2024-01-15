@@ -8,9 +8,9 @@ import com.home.pages.LoginPage;
 public class LoginSteps {
     LoginPage loginPage = new LoginPage(DriverFactory.getPage());
 
-    @Given("user navigates to {string}")
+    @Given("user navigates to url")
     public void navigateToUrl(String url) {
-        loginPage.navigateToUrl(url);
+        loginPage.navigateToBaseUrl();
     }
 
     @When("^user clicks on \"([^\"]*)\" icon in main page")

@@ -7,7 +7,7 @@ import org.junit.runner.RunWith;
 @RunWith(Cucumber.class)
 @CucumberOptions(
         features = {"src/test/resources/features"},
-        glue = {"steps", "hooks"},
+        glue = {"com.home"},
         plugin = {"pretty",
                   "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:",
                   "rerun:target/rerun.txt"
