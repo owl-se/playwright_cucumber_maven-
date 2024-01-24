@@ -95,28 +95,31 @@
                 <version>${maven.surefire.version}</version>
                 <configuration>
                     <skipTests>false</skipTests>
+                    <parallel>methods</parallel>
+                    <threadCount>2</threadCount>
+                    <perCoreThreadCount>true</perCoreThreadCount>
                 </configuration>
             </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-failsafe-plugin</artifactId>
-                <version>3.2.2</version>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>integration-test</goal>
-                        </goals>
-                        <configuration>
-                            <includes>
-                                <include>**/TestRunner.java</include>
-                            </includes>
-                            <parallel>methods</parallel>
-                            <threadCount>2</threadCount>
-                            <perCoreThreadCount>true</perCoreThreadCount>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
+<!--            <plugin>-->
+<!--                <groupId>org.apache.maven.plugins</groupId>-->
+<!--                <artifactId>maven-failsafe-plugin</artifactId>-->
+<!--                <version>3.2.2</version>-->
+<!--                <executions>-->
+<!--                    <execution>-->
+<!--                        <goals>-->
+<!--                            <goal>integration-test</goal>-->
+<!--                        </goals>-->
+<!--                        <configuration>-->
+<!--                            <includes>-->
+<!--                                <include>**/TestRunner.java</include>-->
+<!--                            </includes>-->
+<!--                            <parallel>methods</parallel>-->
+<!--                            <threadCount>2</threadCount>-->
+<!--                            <perCoreThreadCount>true</perCoreThreadCount>-->
+<!--                        </configuration>-->
+<!--                    </execution>-->
+<!--                </executions>-->
+<!--            </plugin>-->
         </plugins>
     </build>
 
