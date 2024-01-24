@@ -1,6 +1,8 @@
 package com.home.hooks;
 
 
+import com.home.steps.BaseStep;
+import com.home.steps.StepContext;
 import com.microsoft.playwright.Page;
 import com.microsoft.playwright.Tracing;
 import io.cucumber.java.After;
@@ -11,15 +13,17 @@ import com.home.factory.DriverFactory;
 import com.home.utils.WebActions;
 import java.nio.file.Paths;
 
-public class Hooks {
+public class Hooks extends BaseStep {
     public DriverFactory driverFactory;
     public Page page;
+    public StepContext stepContext;
 
     @Before
     public void launchBrowser() {
         String browserName = WebActions.getProperty("browser");
         driverFactory = new DriverFactory();
         page = driverFactory.initDriver(browserName);
+        initContext();
     }
 
     @After(order = 0)

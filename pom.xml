@@ -97,7 +97,6 @@
                     <skipTests>false</skipTests>
                 </configuration>
             </plugin>
-
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-failsafe-plugin</artifactId>
@@ -112,7 +111,7 @@
                                 <include>**/TestRunner.java</include>
                             </includes>
                             <parallel>methods</parallel>
-                            <threadCount>4</threadCount>
+                            <threadCount>2</threadCount>
                             <perCoreThreadCount>true</perCoreThreadCount>
                         </configuration>
                     </execution>
