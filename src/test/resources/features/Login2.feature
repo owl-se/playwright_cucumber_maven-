@@ -1,4 +1,4 @@
-Feature: Login Page feature
+Feature: Login Page feature 2
 
   @smoke
   Scenario: Verify User is able to login to Book Store with correct credentials 2
