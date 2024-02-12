@@ -28,7 +28,7 @@ public class LoginSteps extends BaseStep{
     @And("I want to print first value")
     public void iWantToPrintFirstValue() {
         String a = getStepContextThreadLocal().getStoredValue("olo");
-        System.out.println(a);
+        System.out.println(a + " and " + Thread.currentThread().getName());
     }
 
     @And("I also store {string} value for future usage")
