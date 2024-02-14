@@ -1,0 +1,96 @@
+buildscript {
+    repositories {
+        jcenter()
+        mavenCentral()
+        mavenLocal()
+        google()
+    }
+    dependencies {
+
+    }
+}
+
+plugins {
+    id 'java'
+}
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+    maven {
+        url publicUrl
+        credentials {
+            username mavenUser
+            password mavenPassword
+        }
+    }
+}
+
+// REQUIRED: Declare the dependencies that you want to use in your tests. We are using dynamic version ranges here
+//           and later on lock the currently used versions in a lockfile. If you want to use a specific version
+//           of a dependency, feel free to adjust the version here.
+dependencies {
+    testImplementation("io.cucumber:cucumber-java:latest.release") {
+        because("we want to use Cucumber JVM")
+    }
+    testImplementation("io.cucumber:cucumber-junit-platform-engine:latest.release") {
+        because("we want to use Cucumber with JUnit 5")
+    }
+    testImplementation("org.junit.platform:junit-platform-suite:latest.release") {
+        because("we want to use the JUnit 5 @Suite annotation to select/run Cucumber tests")
+    }
+    testImplementation("org.junit.jupiter:junit-jupiter-api:latest.release") {
+        because("we want to use JUnit 5 assertions - replace this if you want to use another assertions library")
+    }
+    testImplementation("io.cucumber:cucumber-picocontainer:latest.release") {
+        because("we want to use dependency injection in our Cucumber tests - remove this if you don't")
+    }
+    implementation("com.microsoft.playwright:playwright:1.31.0")
+}
+
+tasks {
+    test {
+        // REQUIRED: Tell Gradle to use the JUnit 5 platform to execute tests
+        // see https://docs.gradle.org/current/userguide/java_testing.html#using_junit5
+        useJUnitPlatform {
+            // OPTIONAL: Exclude all tests (examples/scenarios) annotated with @disabled by default
+            excludeTags("disabled")
+
+        }
+        // OPTIONAL: Ignore test failures so that build pipelines won't get blocked by failing examples/scenarios
+        ignoreFailures = true
+        // OPTIONAL: Copy all system properties from the command line (-D...) to the test environment
+        systemProperties(project.gradle.startParameter.systemPropertiesArgs)
+        // OPTIONAL: Enable parallel test execution
+        systemProperty("cucumber.execution.parallel.enabled", true)
+        // OPTIONAL: Set parallel execution strategy (defaults to dynamic)
+        systemProperty("cucumber.execution.parallel.config.strategy", "dynamic")
+        // OPTIONAL: Set the fixed number of parallel test executions. Only works for the "fixed" strategy defined above
+        systemProperty("cucumber.execution.parallel.config.fixed.parallelism", 4)
+        // OPTIONAL: Enable Cucumber plugins, enable/disable as desired
+        systemProperty("cucumber.plugin", "message:build/reports/cucumber.ndjson, timeline:build/reports/timeline, html:build/reports/cucumber.html")
+        // OPTIONAL: Improve readability of test names in reports
+        systemProperty("cucumber.junit-platform.naming-strategy", "long")
+        // OPTIONAL: Don't show Cucumber ads
+        systemProperty("cucumber.publish.quiet", "true")
+        // OPTIONAL: Force test execution even if they are up-to-date according to Gradle or use "gradle test --rerun"
+        outputs.upToDateWhen { false }
+    }
+}
+
+//configurations {
+//    all {
+//        // OPTIONAL: Exclude JUnit 4
+//        exclude(group = "junit", module = "junit")
+//        // OPTIONAL: Exclude JUnit 5 vintage engine
+//        exclude(group = "org.junit.vintage", module = "junit-vintage-engine")
+//        // OPTIONAL: Exclude JUnit 5 jupiter engine
+//        exclude(group = "org.junit.jupiter", module = "junit-jupiter-engine")
+//    }
+//}
+
+
+
+
+
+
